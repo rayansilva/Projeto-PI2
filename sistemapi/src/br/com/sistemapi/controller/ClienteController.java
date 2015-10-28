@@ -33,6 +33,7 @@ public class ClienteController {
 		result.include("cliente", cliente);
 	}
 
+	@Path("cliente/pesquisar")
 	public void pesquisar(String pesquisa) {
 
 		Cliente clienteFiltro = new Cliente();
@@ -43,6 +44,7 @@ public class ClienteController {
 		result.redirectTo(this).acessar(cliente);
 	}
 
+	@Path("cliente/cadastrar")
 	public void salvar(Cliente cliente) {
 
 		if (cliente.getNome() == null) {
@@ -59,6 +61,7 @@ public class ClienteController {
 	}
 
 	/* ================ALTERAR======================================= */
+	@Path("cliente/alterarCliente")
 	public void alterar(Cliente cliente) {
 
 		if (cliente.getNome() == null) {
@@ -69,6 +72,7 @@ public class ClienteController {
 		result.redirectTo(this).acessar(null);
 	}
 
+	@Path("cliente/buscarCliente")
 	public void buscaDados(List<Cliente> cliente) {
 		if (cliente == null) {
 			cliente = HibernateUtil.buscarUnico(new Cliente());

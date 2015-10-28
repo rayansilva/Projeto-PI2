@@ -42,7 +42,7 @@
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<form action='salvar'>
+				<form method="post" action='salvar'>
 					<input type="text" name="produto.nome" placeholder="Nome">
 					<br>
 					<input type="number" name="produto.preco" placeholder="Pre&ccedil;o">
