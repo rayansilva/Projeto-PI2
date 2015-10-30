@@ -51,14 +51,13 @@
 						<br/>
 						<input type="text" name="cliente.bairro" value="${clienteUnico.bairro}" placeholder="Bairro"/>
 						<br/>
-						<input type="number" name="cliente.tipoCliente" value="${clienteUnico.tipoCliente}" placeholder="Tipo Cliente"/>
-						<br/>
+						
 						<input type="submit" value="Alterar"/>
 					</form>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<form action='salvar'>
+				<form action='cadastrar' method="post">
 					<input type="text" name="cliente.nome" placeholder="Nome">
 					<br>
 					<input type="number" name="cliente.cpf_cnpj" placeholder="CPF/CNPJ">
@@ -83,8 +82,8 @@
 					<br>
 					<input type="text" name="cliente.bairro" placeholder="Bairro">
 					<br>
-					<input type="number" name="cliente.tipoCliente" placeholder="Tipo Cliente">
-					<br>
+					<input type ="hidden" name="cliente.tipoCliente" value="1">
+					
 					<input type="submit" value="Inserir">
 				</form>
 			</c:otherwise>
@@ -167,7 +166,7 @@
 						<input type="hidden" name="cliente.rua" value="${cliente.rua}"/>
 						<input type="hidden" name="cliente.complemento" value="${cliente.complemento}"/>
 						<input type="hidden" name="cliente.bairro" value="${cliente.bairro}"/>
-						<input type="hidden" name="cliente.tipoCliente" value="${cliente.tipoCliente}"/>
+						
 						<input type="submit" value="Alterar">
 					</form>
 				</td>

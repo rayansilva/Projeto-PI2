@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.sistemapi.hibernate.HibernateUtil;
 import br.com.sistemapi.modelo.Cliente;
+import br.com.sistemapi.modelo.TipoCliente;
 
 @Resource
 public class ClienteController {
@@ -28,6 +29,7 @@ public class ClienteController {
 		if (cliente == null) {
 
 			cliente = HibernateUtil.buscar(new Cliente());
+			//List teste = HibernateUtil.buscar(new TipoCliente());
 		}
 
 		result.include("cliente", cliente);
@@ -51,6 +53,7 @@ public class ClienteController {
 			validator.add(new ValidationMessage("O nome do cliente deve estar preenchido", "Erro"));
 			validator.onErrorRedirectTo(this).acessar(null);
 		}
+
 		HibernateUtil.salvar(cliente);
 		result.redirectTo(this).acessar(null);
 	}

@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.sistemapi.hibernate.HibernateUtil;
+import br.com.sistemapi.modelo.TipoCliente;
 import br.com.sistemapi.modelo.Usuario;
 
 @Resource

@@ -1,9 +1,14 @@
 package br.com.sistemapi.modelo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente {
@@ -36,6 +41,10 @@ public class Cliente {
 	private String bairro;
 	@Column
 	private Integer tipoCliente;
+	
+	
+//	@OneToOne(fetch = FetchType.LAZY,mappedBy = "TipoCliente", cascade = CascadeType.ALL)
+//	private TipoCliente tipoCliente;
 
 	public Integer getId() {
 		return id;
@@ -140,13 +149,13 @@ public class Cliente {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-
-	public Integer getTipoCliente() {
-		return tipoCliente;
-	}
-
-	public void setTipoCliente(Integer tipoCliente) {
-		this.tipoCliente = tipoCliente;
-	}
+//
+//	public TipoCliente getTipoCliente() {
+//		return tipoCliente;
+//	}
+//
+//	public void setTipoCliente(TipoCliente tpCliente) {
+//		this.tipoCliente = tpCliente;
+//	}
 
 }

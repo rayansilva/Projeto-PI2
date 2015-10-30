@@ -1,10 +1,14 @@
 package br.com.sistemapi.controller;
 
+import java.util.List;
+
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.sistemapi.hibernate.HibernateUtil;
 import br.com.sistemapi.modelo.Cliente;
+import br.com.sistemapi.modelo.Usuario;
 
 @Resource
 public class IndexController {
@@ -22,15 +26,32 @@ public class IndexController {
 	{
 	}
 	
-	@Path("/")
+	@Path("/index")
 	void index()
 	{
 		
 	}
 	
 	@Path("/login")
-	public void login( String name, String password)
+	public void login( )
 	{
 		
+	}
+	
+	@Path("/validaLogin")
+	public void validaLogin( Usuario user )
+	{
+		
+		List<Usuario> users =  HibernateUtil.buscar(user);
+		
+		if ( !users.isEmpty() )
+		{
+			result.redirectTo(this).menu();
+		}
+		else
+		{
+			result.include("Erro", "Erro na validacao");
+			result.redirectTo(this).login();
+		}
 	}
 }

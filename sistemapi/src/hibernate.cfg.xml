@@ -25,6 +25,7 @@
 		<mapping class="br.com.sistemapi.modelo.StatusVenda" />
 		<mapping class="br.com.sistemapi.modelo.Transacao" />
 		<mapping class="br.com.sistemapi.modelo.Usuario" />
+		<mapping class="br.com.sistemapi.modelo.TipoCliente" />
 
 	</session-factory>
 </hibernate-configuration>
