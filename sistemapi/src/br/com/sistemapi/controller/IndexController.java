@@ -29,7 +29,6 @@ public class IndexController {
 	@Path("/index")
 	void index()
 	{
-		
 	}
 	
 	@Path("/login")
@@ -42,6 +41,7 @@ public class IndexController {
 	public void validaLogin( Usuario user )
 	{
 		
+		@SuppressWarnings("unchecked")
 		List<Usuario> users =  HibernateUtil.buscar(user);
 		
 		if ( !users.isEmpty() )
