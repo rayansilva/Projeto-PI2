@@ -26,14 +26,16 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
 		          </button>
-		          <a class="navbar-brand" href="#">Sistema PI2</a>
+		          <!--//TODO: FAZER SESSÃO PARA ESSE ACESSO.. -->
+		          <a class="navbar-brand" href="login">Sistema PI2</a>
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="/login">Home</a></li>
-		            <li><a href="#">Pesquisa</a></li>
-		            <li><a href="#">Sobre</a></li>
-		            <li><a href="#">Ajuda</a></li>
+		            <li><a href="menu">Home</a></li>
+		            <!-- //TODO: fazer essas páginas -->
+		            <!-- pesquisa --><li><a href="#">Pesquisa</a></li>
+		            <!-- sobre --><li><a href="#">Sobre</a></li>
+		            <!-- ajuda --><li><a href="#">Ajuda</a></li>
 		          </ul>
 		          <form class="navbar-form navbar-right">
 		            <input type="text" class="form-control" placeholder="Search...">
@@ -55,7 +57,7 @@
 		        	<label for="inputPassword" class="sr-only">Password</label>
 		        	<input type="password" name="user.senha" id="inputPassword" class="form-control" placeholder="Password" required><br />
 		        	<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-		        	<a class="pull-right" href="#cadastro">registre-se</a><br/>
+		        	<a class="pull-right" href="cliente/cadastrar">registre-se</a><br/>
 				</form>
 			</div>
 		</div>

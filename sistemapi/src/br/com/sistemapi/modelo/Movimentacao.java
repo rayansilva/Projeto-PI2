@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Movimentacao {
@@ -15,6 +17,14 @@ public class Movimentacao {
 	private String quantidade;
 	private BigDecimal Preco;
 	private String quantidadeEstoqueNaData;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_transacao")
+	private Transacao transacao;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_produto")
+	private Produto produto;
 
 	public Integer getId() {
 		return id;
@@ -46,6 +56,22 @@ public class Movimentacao {
 
 	public void setQuantidadeEstoqueNaData(String quantidadeEstoqueNaData) {
 		this.quantidadeEstoqueNaData = quantidadeEstoqueNaData;
+	}
+
+	public Transacao getTransacao() {
+		return transacao;
+	}
+
+	public void setTransacao(Transacao transacao) {
+		this.transacao = transacao;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 }

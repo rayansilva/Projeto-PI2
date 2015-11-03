@@ -17,15 +17,15 @@
 		<property name="formate_sql">true</property>
 
 		<mapping class="br.com.sistemapi.modelo.Cliente" />
-		<mapping class="br.com.sistemapi.modelo.Estoque" />
+		<mapping class="br.com.sistemapi.modelo.TpCliente" />
+		<mapping class="br.com.sistemapi.modelo.Usuario" />
 		<mapping class="br.com.sistemapi.modelo.FormaPagamento" />
-		<mapping class="br.com.sistemapi.modelo.Movimentacao" />
-		<mapping class="br.com.sistemapi.modelo.Produto" />
-		<mapping class="br.com.sistemapi.modelo.Reserva" />
 		<mapping class="br.com.sistemapi.modelo.StatusVenda" />
 		<mapping class="br.com.sistemapi.modelo.Transacao" />
-		<mapping class="br.com.sistemapi.modelo.Usuario" />
-		<mapping class="br.com.sistemapi.modelo.TipoCliente" />
+		<mapping class="br.com.sistemapi.modelo.Estoque" />
+		<mapping class="br.com.sistemapi.modelo.Produto" />
+		<mapping class="br.com.sistemapi.modelo.Movimentacao" />
+		<mapping class="br.com.sistemapi.modelo.Reserva" />
 
 	</session-factory>
 </hibernate-configuration>

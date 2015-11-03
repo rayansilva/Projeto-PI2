@@ -66,7 +66,7 @@
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<form action='salvar'>
+				<form action='usuario/salvar'>
 					<input type="text" name="usuario.login" placeholder="Login">
 					<br>
 					<input type="password" name="usuario.senha" placeholder="Senha">

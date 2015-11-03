@@ -1,9 +1,12 @@
 package br.com.sistemapi.modelo;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Estoque {
@@ -15,6 +18,9 @@ public class Estoque {
 	private BigDecimal totalDisponivel;
 	private BigDecimal totalReserva;
 
+	@OneToMany(mappedBy="estoque")
+	private List<Produto> produtos;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,6 +51,14 @@ public class Estoque {
 
 	public void setTotalReserva(BigDecimal totalReserva) {
 		this.totalReserva = totalReserva;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 }

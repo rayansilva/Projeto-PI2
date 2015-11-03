@@ -1,10 +1,12 @@
 package br.com.sistemapi.modelo;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class StatusVenda {
@@ -14,9 +16,20 @@ public class StatusVenda {
 	private Integer id;
 	private BigDecimal descricaoVenda;
 	private BigDecimal codigoVenda;
+	
+	@OneToMany(mappedBy="statusVenda")
+	private List<Transacao> transacoes;
 
 	public Integer getId() {
 		return id;
+	}
+
+	public List<Transacao> getTransacoes() {
+		return transacoes;
+	}
+
+	public void setTransacoes(List<Transacao> transacoes) {
+		this.transacoes = transacoes;
 	}
 
 	public void setId(Integer id) {

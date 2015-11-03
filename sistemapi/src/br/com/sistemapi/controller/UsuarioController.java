@@ -22,7 +22,6 @@ public class UsuarioController {
 		this.validator = validator;
 	}
 
-	@Path("usuario/acessar")
 	public void acessar(List<Usuario> usuario) {
 		if (usuario == null) {
 			usuario = HibernateUtil.buscar(new Usuario());
@@ -30,6 +29,7 @@ public class UsuarioController {
 		result.include("usuario", usuario);
 	}
 
+	@Path("usuario/salvar")
 	public void salvar(Usuario usuario) {
 
 		if (usuario.getLogin() == null) {

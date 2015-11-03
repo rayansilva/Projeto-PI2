@@ -1,12 +1,15 @@
 package br.com.sistemapi.modelo;
 
 import java.math.BigDecimal;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produto {
@@ -14,26 +17,22 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	@Column
 	private BigDecimal preco;
-
-	@Column
 	private String nome;
-
-	@Column
 	private String detalhe;
-
-	@Column
 	private String cor;
-
-	@Column
 	private String tamanho;
-
-	@Column
 	private String situacaoProduto;
 
-
+	@ManyToOne
+	@JoinColumn(name = "id_estoque")
+	private Estoque estoque;
+	
+	@OneToMany(mappedBy="produto")
+	private List<Reserva> reservas;
+	
+	@OneToMany(mappedBy="produto")
+	private List<Movimentacao> movimentacoes;
 
 	public Integer getId() {
 		return id;
@@ -89,6 +88,30 @@ public class Produto {
 
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
+	}
+
+	public Estoque getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(Estoque estoque) {
+		this.estoque = estoque;
+	}
+
+	public List<Reserva> getReservas() {
+		return reservas;
+	}
+
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+		this.movimentacoes = movimentacoes;
 	}
 
 }

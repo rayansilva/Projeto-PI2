@@ -1,8 +1,11 @@
 package br.com.sistemapi.modelo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class FormaPagamento {
@@ -11,7 +14,10 @@ public class FormaPagamento {
 	@GeneratedValue
 	private Integer id;
 	private String descricao;
-
+	
+	@OneToMany(mappedBy="formaPagto")
+	private List<Transacao> transacoes;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -28,4 +34,11 @@ public class FormaPagamento {
 		this.descricao = descricao;
 	}
 
+	public List<Transacao> getTransacoes() {
+		return transacoes;
+	}
+
+	public void setTransacoes(List<Transacao> transacoes) {
+		this.transacoes = transacoes;
+	}
 }

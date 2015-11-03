@@ -1,50 +1,40 @@
 package br.com.sistemapi.modelo;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
+	
 	@Id
 	@GeneratedValue
 	private Integer id;
-	@Column
 	private String nome;
-	@Column
 	private String cpf_cnpj;
-	@Column
 	private String telefoneFixo;
-	@Column
 	private String telefoneCelular;
-	@Column
+	private String site;
 	private String email;
-	@Column
 	private String endereco;
-	@Column
 	private String cep;
-	@Column
 	private String cidade;
-	@Column
 	private String uf;
-	@Column
 	private String rua;
-	@Column
 	private String complemento;
-	@Column
 	private String bairro;
-	@Column
-	private Integer tipoCliente;
+
+	@ManyToOne
+	@JoinColumn(name = "id_tp_cliente")
+	private TpCliente tpCliente;
 	
-	
-//	@OneToOne(fetch = FetchType.LAZY,mappedBy = "TipoCliente", cascade = CascadeType.ALL)
-//	private TipoCliente tipoCliente;
+	@OneToMany(mappedBy="cliente")
+	private List<Transacao> transacoes;
 
 	public Integer getId() {
 		return id;
@@ -149,13 +139,29 @@ public class Cliente {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-//
-//	public TipoCliente getTipoCliente() {
-//		return tipoCliente;
-//	}
-//
-//	public void setTipoCliente(TipoCliente tpCliente) {
-//		this.tipoCliente = tpCliente;
-//	}
+
+	public TpCliente getTpCliente() {
+		return tpCliente;
+	}
+
+	public void setTpCliente(TpCliente tpCliente) {
+		this.tpCliente = tpCliente;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
+	public List<Transacao> getTransacoes() {
+		return transacoes;
+	}
+
+	public void setTransacoes(List<Transacao> transacoes) {
+		this.transacoes = transacoes;
+	}
 
 }

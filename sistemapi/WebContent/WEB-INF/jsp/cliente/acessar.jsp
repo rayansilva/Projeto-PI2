@@ -29,7 +29,7 @@
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="/login">Home</a></li>
+		            <li><a href="../login">Home</a></li>
 		            <li><a href="#">Pesquisa</a></li>
 		            <li><a href="#">Sobre</a></li>
 		            <li><a href="#">Ajuda</a></li>
@@ -46,7 +46,6 @@
 	<div class="container-fluid" >
 		<h1>Dados Cliente</h1>
 		<br>
-		<center><a href="/sistemapi/menu">Menu</a></center>
 		<div style="background-color: red; color: white">
 			<c:forEach var="error" items="${errors}">
 			    ${error.category} - ${error.message}<br/>
@@ -64,7 +63,7 @@
 		<c:choose>
 			<c:when test="${not empty clienteUnico}">
 				<c:forEach var="clienteUnico" items="${clienteUnico}">
-					<form class="form-control" action='alterar'>
+					<form class="" action='alterar'>
 						<input type="hidden" name="cliente.id" value="${clienteUnico.id}" />
 						<br/>
 						<input type="text" name="cliente.nome" value="${clienteUnico.nome}" placeholder="Nome"/>
@@ -91,13 +90,14 @@
 						<br/>
 						<input type="text" name="cliente.bairro" value="${clienteUnico.bairro}" placeholder="Bairro"/>
 						<br/>
-						
+						<input type="hidden" name="cliente.tipoCliente" value="${cliente.tipoCliente}"/>
+						<br/>
 						<input type="submit" value="Alterar"/>
 					</form>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<form action='cadastrar' method="post">
+				<form class="form-group" action='cadastrar' method="post">
 					<input type="text" name="cliente.nome" placeholder="Nome">
 					<br>
 					<input type="number" name="cliente.cpf_cnpj" placeholder="CPF/CNPJ">
@@ -123,7 +123,9 @@
 					<input type="text" name="cliente.bairro" placeholder="Bairro">
 					<br>
 					<input type ="hidden" name="cliente.tipoCliente" value="1">
-					
+					<br/>
+					<input type="number" name="cliente.tipoCliente" placeholder="Tipo Cliente">
+					<br>
 					<input type="submit" value="Inserir">
 				</form>
 			</c:otherwise>
