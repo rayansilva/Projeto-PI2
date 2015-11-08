@@ -27,10 +27,11 @@
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="/login">Home</a></li>
+		            <li><a href="menu">Home</a></li>
 		            <li><a href="#">Pesquisa</a></li>
 		            <li><a href="#">Sobre</a></li>
 		            <li><a href="#">Ajuda</a></li>
+		            <li><a href="login">Sair</a></li>
 		          </ul>
 		          <form class="navbar-form navbar-right">
 		            <input type="text" class="form-control" placeholder="Search...">
@@ -40,36 +41,38 @@
 		    </nav>
 		</div>
  	</div>
+ 	
  	<br />
 
-		<h1>Menu</h1>
-		<hr>
-		<br>
-		<ul class="nav navbar-nav">
-			<li>
-				<a href="cliente/acessar">
-					Cadastro de Cliente
-				</a>
-			</li>
-			<br>
-			<li>
-				<a href="produto/acessar">
-					Cadastro de Produto
-				</a>
-			</li>
-			<br>
-			<li>
-				<a href="#">Realizar Venda</a>
-			</li>
-			<br><br><br>
-			<li>
-				<a href="usuario/acessar">
-					Cadastrar Usu&aacute;rio
-				</a>
-			</li>
-		</ul>
+	<div class="container-fluid">
 		
-		
+		<div class="row col-md-3">
+			<br>
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="cliente/acessar">
+						Clientes
+					</a>
+				</li>
+				<br/>
+				<li>
+					<a href="produto/acessar">
+						Produtos
+					</a>
+				</li>
+				<br/>
+				<li>
+					<a href="#">Vendas</a>
+				</li>
+				<br/><br/><br/>
+				<li>
+					<a href="usuario/acessar">
+						Usuário
+					</a>
+				</li>
+			</ul>
+			</div>
+	</div>	
 		
 	</body>
 </html>

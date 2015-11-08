@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 @Entity
 public class Transacao {
 
@@ -22,6 +25,7 @@ public class Transacao {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_status_venda")
+	@Cascade({CascadeType.MERGE, CascadeType.SAVE_UPDATE})
 	private StatusVenda statusVenda;
 	
 	@ManyToOne

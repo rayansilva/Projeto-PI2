@@ -29,10 +29,11 @@
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="../login">Home</a></li>
+		            <li><a href="../menu">Home</a></li>
 		            <li><a href="#">Pesquisa</a></li>
 		            <li><a href="#">Sobre</a></li>
 		            <li><a href="#">Ajuda</a></li>
+		            <li><a href="../login">Sair</a></li>
 		          </ul>
 		          <form class="navbar-form navbar-right">
 		            <input type="text" class="form-control" placeholder="Search...">
@@ -43,14 +44,10 @@
 		</div>
  	</div>
  	<br />
+ 	
 	<div class="container-fluid" >
 		<h1>Dados Cliente</h1>
 		<br>
-		<div style="background-color: red; color: white">
-			<c:forEach var="error" items="${errors}">
-			    ${error.category} - ${error.message}<br/>
-			</c:forEach>
-		</div>
 		<form class="form-inline" action='pesquisar'>
 			<div class="form-group"><input class="form-control" type="text" name="pesquisa" placeholder="Pesquisa"></div>
 			<input class="btn btn-default" type="submit" value="Pesquisar">
@@ -59,80 +56,87 @@
 		<hr>
 		<br>
 
-		
+		<div class="form-group col-md-3">
 		<c:choose>
 			<c:when test="${not empty clienteUnico}">
 				<c:forEach var="clienteUnico" items="${clienteUnico}">
-					<form class="" action='alterar'>
-						<input type="hidden" name="cliente.id" value="${clienteUnico.id}" />
+					<form action='alterarCliente'>
+						<input type="hidden" class="form-control" name="cliente.id" value="${clienteUnico.id}" />
 						<br/>
-						<input type="text" name="cliente.nome" value="${clienteUnico.nome}" placeholder="Nome"/>
+						<input type="text" class="form-control" name="cliente.nome" value="${clienteUnico.nome}" placeholder="Nome"/>
 						<br/>
-						<input type="number" name="cliente.cpf_cnpj"  value="${clienteUnico.cpf_cnpj}" placeholder="CPF/CNPJ"/>
+						<input type="text" class="form-control" name="cliente.cpf_cnpj"  value="${clienteUnico.cpf_cnpj}" placeholder="CPF/CNPJ"/>
 						<br/>
-						<input type="text" name="cliente.telefoneFixo"  value="${clienteUnico.telefoneFixo}" placeholder="TelefoneFixo"/>			
+						<input type="text" class="form-control" name="cliente.telefoneFixo"  value="${clienteUnico.telefoneFixo}" placeholder="TelefoneFixo"/>			
 						<br/>
-						<input type="text" name="cliente.telefoneCelular"  value="${clienteUnico.telefoneCelular}" placeholder="Telefone Celular"/>
+						<input type="text" class="form-control" name="cliente.telefoneCelular"  value="${clienteUnico.telefoneCelular}" placeholder="Telefone Celular"/>
 						<br/>
-						<input type="text" name="cliente.email"  value="${clienteUnico.email}" placeholder="Email"/>
+						<input type="text" class="form-control" name="cliente.email"  value="${clienteUnico.email}" placeholder="Email"/>
 						<br/>
-						<input type="text" name="cliente.endereco"  value="${clienteUnico.endereco}" placeholder="Endereco"/>
+						<input type="text" class="form-control" name="cliente.endereco"  value="${clienteUnico.endereco}" placeholder="Endereco"/>
 						<br/>
-						<input type="text" name="cliente.cep"  value="${clienteUnico.cep}" placeholder="CEP"/>
+						<input type="text" class="form-control" name="cliente.cep"  value="${clienteUnico.cep}" placeholder="CEP"/>
 						<br/>
-						<input type="text" name="cliente.cidade"  value="${clienteUnico.cidade}" placeholder="Cidade"/>
+						<input type="text" class="form-control" name="cliente.cidade"  value="${clienteUnico.cidade}" placeholder="Cidade"/>
 						<br/>
-						<input type="text" name="cliente.uf"  value="${clienteUnico.uf}" placeholder="UF"/>
+						<input type="text" class="form-control" name="cliente.uf"  value="${clienteUnico.uf}" placeholder="UF"/>
 						<br/>
-						<input type="text" name="cliente.rua"  value="${clienteUnico.rua}" placeholder="Rua"/>
+						<input type="text" class="form-control" name="cliente.rua"  value="${clienteUnico.rua}" placeholder="Rua"/>
 						<br/>
-						<input type="text" name="cliente.complemento" value="${clienteUnico.complemento}" placeholder="Complemento"/>
+						<input type="text" class="form-control" name="cliente.complemento" value="${clienteUnico.complemento}" placeholder="Complemento"/>
 						<br/>
-						<input type="text" name="cliente.bairro" value="${clienteUnico.bairro}" placeholder="Bairro"/>
+						<input type="text" class="form-control" name="cliente.bairro" value="${clienteUnico.bairro}" placeholder="Bairro"/>
 						<br/>
-						<input type="hidden" name="cliente.tipoCliente" value="${cliente.tipoCliente}"/>
+						<input type ="hidden" name="cliente.tipoCliente" value="1">
+						<select name="cliente.tpCliente.descricao" class="form-control">
+					  		<option>Fornecedor</option>
+					  		<option>Cliente</option>
+						</select>
 						<br/>
-						<input type="submit" value="Alterar"/>
+						<input type="submit" class="btn btn-default" value="Alterar">
 					</form>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
+				<h4 class="">Cadastrar Clientes</h4>
 				<form class="form-group" action='cadastrar' method="post">
-					<input type="text" name="cliente.nome" placeholder="Nome">
+					<input type="text" required="true" class="form-control" name="cliente.nome" placeholder="Nome">
 					<br>
-					<input type="number" name="cliente.cpf_cnpj" placeholder="CPF/CNPJ">
+					<input type="number" class="form-control" name="cliente.cpf_cnpj" placeholder="CPF/CNPJ">
 					<br>
-					<input type="text" name="cliente.telefoneFixo" placeholder="Telefone Fixo">			
+					<input type="text" class="form-control" name="cliente.telefoneFixo" placeholder="Telefone Fixo">			
 					<br>
-					<input type="text" name="cliente.telefoneCelular" placeholder="Telefone Celular">
+					<input type="text" class="form-control" name="cliente.telefoneCelular" placeholder="Telefone Celular">
 					<br>
-					<input type="text" name="cliente.email" placeholder="Email">
+					<input type="text" class="form-control" name="cliente.email" placeholder="Email">
 					<br>
-					<input type="text" name="cliente.endereco" placeholder="Endere&ccedil;o">
+					<input type="text" class="form-control" name="cliente.endereco" placeholder="Endere&ccedil;o">
 					<br>
-					<input type="text" name="cliente.cep" placeholder="CEP">
+					<input type="text" class="form-control" name="cliente.cep" placeholder="CEP">
 					<br>
-					<input type="text" name="cliente.cidade" placeholder="Cidade">
+					<input type="text" class="form-control" name="cliente.cidade" placeholder="Cidade">
 					<br>
-					<input type="text" name="cliente.uf" placeholder="UF">
+					<input type="text" class="form-control" name="cliente.uf" placeholder="UF">
 					<br>
-					<input type="text" name="cliente.rua" placeholder="Rua">
+					<input type="text" class="form-control" name="cliente.rua" placeholder="Rua">
 					<br>
-					<input type="text" name="cliente.complemento" placeholder="Complemento">
+					<input type="text" class="form-control" name="cliente.complemento" placeholder="Complemento">
 					<br>
-					<input type="text" name="cliente.bairro" placeholder="Bairro">
+					<input type="text" class="form-control" name="cliente.bairro" placeholder="Bairro">
 					<br>
-					<input type ="hidden" name="cliente.tipoCliente" value="1">
-					<br/>
-					<input type="number" name="cliente.tipoCliente" placeholder="Tipo Cliente">
+					<input type ="hidden" name="cliente.tipoCliente.descricao" value="1">
+					<select name="cliente.tpCliente.descricao" class="form-control">
+					  <option >Fornecedor</option>
+					  <option >Cliente</option>
+					</select>
 					<br>
-					<input type="submit" value="Inserir">
+					<input type="submit" class="btn btn-default" value="Cadastrar">
 				</form>
 			</c:otherwise>
 		</c:choose>
-
+		</div>
 		<br>
-		
+		<div class="container-fluid col-md-9 table-responsive">
 		<table class="table">
 			<tr>
 				
@@ -148,7 +152,7 @@
 				<td>Rua</td>
 				<td>Complemento</td>
 				<td>Bairro</td>
-				<td>Tipo Cliente</td>
+				<td>Tipo</td>
 				<td>Alterar</td>
 				<td>Excluir</td>
 			</tr>
@@ -191,10 +195,10 @@
 					${cliente.bairro}
 				</td>
 				<td>
-					${cliente.tipoCliente}
+					${cliente.tpCliente.descricao}
 				</td>
 				<td>
-					<form action='buscaDados'>
+					<form action='buscarCliente'>
 						<input type="hidden" name="cliente.id" value="${cliente.id}"/>
 						<input type="hidden" name="cliente.nome" value="${cliente.nome}"/>
 						<input type="hidden" name="cliente.cpf_cnpj" value="${cliente.cpf_cnpj}"/>
@@ -208,19 +212,21 @@
 						<input type="hidden" name="cliente.rua" value="${cliente.rua}"/>
 						<input type="hidden" name="cliente.complemento" value="${cliente.complemento}"/>
 						<input type="hidden" name="cliente.bairro" value="${cliente.bairro}"/>
+						<input type="hidden" name="cliente.tpCliente.descricao" value="${cliente.tpCliente.descricao}"/>
 						
-						<input type="submit" value="Alterar">
+						<input type="submit" class="btn btn-default" value="Alterar">
 					</form>
 				</td>
 				<td>
 					<form action='deletar'>
 						<input type="hidden" name="cliente.id" value="${cliente.id}">
-						<input type="submit" value="Apagar">
+						<input type="submit" class="btn btn-default" value="Apagar">
 					</form>
 				</td>
 			</tr>
 		</c:forEach>
 		</table>
+		</div>
 	    <br>
 		</div>
 	</body>

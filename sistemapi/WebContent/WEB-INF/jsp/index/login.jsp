@@ -31,7 +31,7 @@
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="menu">Home</a></li>
+		            <li><a href="login">Home</a></li>
 		            <!-- //TODO: fazer essas páginas -->
 		            <!-- pesquisa --><li><a href="#">Pesquisa</a></li>
 		            <!-- sobre --><li><a href="#">Sobre</a></li>
@@ -59,6 +59,12 @@
 		        	<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 		        	<a class="pull-right" href="cliente/cadastrar">registre-se</a><br/>
 				</form>
+				<div class="pull-right" style=" color: red">		
+					<c:forEach var="error" items="${errors}">
+					    <script type="text/javascript"> alert("Usuário Inválido")</script>
+					    ${error.category} - ${error.message}<br />
+					</c:forEach>
+				</div>
 			</div>
 		</div>
 	</div>

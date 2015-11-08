@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.sistemapi.hibernate.HibernateUtil;
 import br.com.sistemapi.modelo.Cliente;
 import br.com.sistemapi.modelo.Usuario;
@@ -50,8 +51,9 @@ public class IndexController {
 		}
 		else
 		{
-			result.include("Erro", "Erro na validacao");
-			result.redirectTo(this).login();
+
+			validator.add(new ValidationMessage("Usuário Inválido", "Erro"));
+			validator.onErrorRedirectTo(this).login();
 		}
 	}
 }

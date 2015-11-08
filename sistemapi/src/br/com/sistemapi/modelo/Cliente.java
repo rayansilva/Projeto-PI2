@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 @Entity
 public class Cliente {
 	
@@ -31,6 +33,7 @@ public class Cliente {
 
 	@ManyToOne
 	@JoinColumn(name = "id_tp_cliente")
+	@Cascade({CascadeType.MERGE, CascadeType.SAVE_UPDATE})
 	private TpCliente tpCliente;
 	
 	@OneToMany(mappedBy="cliente")

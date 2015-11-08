@@ -66,7 +66,6 @@ public class ClienteController {
 	/* ================ALTERAR======================================= */
 	@Path("cliente/alterarCliente")
 	public void alterar(Cliente cliente) {
-
 		if (cliente.getNome() == null) {
 			validator.add(new ValidationMessage("O nome deve estar preenchido", "Erro"));
 			validator.onErrorRedirectTo(this).acessar(null);

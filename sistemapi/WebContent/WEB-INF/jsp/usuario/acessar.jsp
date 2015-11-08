@@ -27,7 +27,7 @@
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="/login">Home</a></li>
+		            <li><a href="../menu">Home</a></li>
 		            <li><a href="#">Pesquisa</a></li>
 		            <li><a href="#">Sobre</a></li>
 		            <li><a href="#">Ajuda</a></li>
@@ -43,7 +43,6 @@
  	<br />
 		<h1>Dados Usu&aacute;rio</h1>
 		<br>
-		<center><a href="../menu">Menu</a></center>
 		<div style="background-color: red; color: white">
 			<c:forEach var="error" items="${errors}">
 			    ${error.category} - ${error.message}<br />
@@ -51,34 +50,36 @@
 		</div>
 		<hr>
 		<br>
-		
+		<div class="col-md-3 form-group">
+		<h4>Cadastrar Usuário</h4>
 		<c:choose>
 			<c:when test="${not empty usuarioUnico}">
 				<c:forEach var="usuarioUnico" items="${usuarioUnico}">
 					<form action='alterar'>
-						<input type="text" name="usuario.login" value="${usuarioUnico.login}" placeholder="Login">
+						<input type="text" class="form-control" name="usuario.login" value="${usuarioUnico.login}" placeholder="Login">
 						<br>
-						<input type="text" name="usuario.senha" value="${usuarioUnico.senha}" placeholder="Senha">
+						<input type="text" class="form-control" name="usuario.senha"  value="${usuarioUnico.senha}" placeholder="Senha">
 						<input type="hidden" name="usuario.id" value="${usuarioUnico.id}">
 						<br>
-						<input type="submit" value="Alterar">
+						<input type="submit" class="btn btn-default" value="Alterar">
 					</form>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
-				<form action='usuario/salvar'>
-					<input type="text" name="usuario.login" placeholder="Login">
+				<form action='salvar'>
+					<input type="text" class="form-control" name="usuario.login" placeholder="Login">
 					<br>
-					<input type="password" name="usuario.senha" placeholder="Senha">
+					<input type="password" class="form-control" name="usuario.senha" placeholder="Senha">
 					<input type="hidden" name="usuario.id" >
 					<br>
-					<input type="submit" value="Inserir">
+					<input type="submit" class="btn btn-default" value="Inserir">
 				</form>
 			</c:otherwise>
 		</c:choose>
-
+		</div>
 		<br>
-		<table border="1">
+		<div class="col-md-9">
+		<table class="table">
 			<tr>
 				
 				<td>Login</td>
@@ -111,6 +112,7 @@
 			</tr>
 		</c:forEach>
 		</table>
+		</div>
 	    <br>
 		
 	</body>
